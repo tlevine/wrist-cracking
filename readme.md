@@ -59,6 +59,22 @@ We thus have something like this.
              .
     -----------------------------------------------------
 
-## EMG variables/features
+## Web-based data collection and exploration
 Before deciding which variables to extract, I made a web interface for marking
-when the crack occurred. 
+when the crack occurred. It displays the video and graphs the amplitude of the
+audio and EMG. It plays the video and audio, and it moves a line across the
+graphs of audio and EMG amplitude.
+
+![Messy sketch](notes/1a.png)
+
+The main function of this interface is to collect the information on when in
+the video the wrist-cracking motion ended; is the crack trials, this is the
+point where the wrist cracked, and in the no-crack trials, this is the point
+where the wrist just barely avoided cracking. As a check, this interface also
+requires that you mark whether it was a crack or no-crack trial, which you
+can discern from the audio.
+
+A second function of this interface is to let me explore the data; based on
+this exploration, I came up with the variables below
+
+## EMG variables/features
