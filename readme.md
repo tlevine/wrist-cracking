@@ -7,6 +7,11 @@ past tense, but not all of these things have happened yet.
 The wrist-cracking motion involves a range of wrist movements that culminate
 with wrist extension.
 
+### Hypothesis
+I think that wrist cracking involves the simultaneous contraction of opposing
+wrist muscle groups and that when the audible crack occurs, they are
+temporarily relaxed to some degree.
+
 ## Physical measurement
 I connected EMG to a wrist flexor and a wrist extensor, varying the
 combination, and measured the output every centisecond. I used
@@ -54,9 +59,6 @@ We thus have something like this.
              .
     -----------------------------------------------------
 
-These sub-trials were treated
-as a "crack" factor
-, which were performed in random order.
-In both componends, the wrist was moved in
-
-In one
+## EMG variables/features
+Before deciding which variables to extract, I made a web interface for marking
+when the crack occurred. 
