@@ -1,0 +1,20 @@
+export WRIST_ROOT="$PWD"
+
+# For the data read/write API
+export WRIST_RAW="$PWD/raw"
+
+# Run the data read/write API
+annotate() {
+  builtin cd "$WRIST_RAW/annotate"
+  ./app.py
+}
+
+# Indicate that we've activated.
+OLD_PS1=$PS1
+PS1="[wrist]$PS1"
+
+deactivate () {
+  export PATH=$OLD_PATH
+  PS1=$OLD_PS1
+  unset -f deactivate
+}

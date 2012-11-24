@@ -7,8 +7,8 @@
 The data read/write service only has one HTML page. It is at `GET /`, and it is
 static. This page calls the API. Ooohh "API" I'm so hip!!!
 
-### Assets
-Assets are mapped exactly to the filesystem structure, and they look like this:
+### Raw data
+Raw data are mapped exactly to the filesystem structure, like this:
 
 * `GET /!/:participant_id/:trial_id/:crack_or_almost/video.ogg`
 * Data files if I render line plots on the browser
