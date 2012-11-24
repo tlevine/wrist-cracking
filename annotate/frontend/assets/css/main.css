@@ -374,14 +374,21 @@ video#video, img.waveform {
 }
 
 img.waveform {
-    height: 100px;
+    width: 100%;
 }
 
 
-
-
-
-
+#waveform-wrapper {
+    position: relative;
+}
+#progress-shader {
+    position: absolute;
+    display: block;
+    background-color: #F0F;
+    opacity: 0.3;
+    height: 100%;
+    width: 50%;
+}
 
 /* Media queries
 ---------------------------------------- */
