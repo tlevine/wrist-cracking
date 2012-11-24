@@ -1,7 +1,5 @@
-* Data read/write API is in Bottle.
-* The rest is static pages, served by bottle so I don't have to deal with
-    cross-domain requests.
-* The "waveforms" are just images, and we scroll over them with CSS.
+Wrist cracking annotation website
+====
 
 ## Data read/write API
 The data read/write service only has one HTML page. It is at `GET /`, and it is
@@ -46,3 +44,13 @@ On a `POST`, the query string is expected to contain `crack_or_almost` and
 
 On subsequent a `GET`, the alphabetically highest `index_:datetime.json` is
 displayed.
+
+## Frontend
+Anything that does not match the rules above is loaded as a static file from
+the `frontend` directory.
+
+The "waveforms" are just images, and we scroll over them with CSS. Or maybe
+they're generated in Javascript. This would be nice because remove layers from
+this program.
+
+

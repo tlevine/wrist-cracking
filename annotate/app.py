@@ -71,4 +71,14 @@ def navigation():
                 })
     return json.dumps(out)
 
+@get('/')
+@get('/<filepath:path>')
+def frontend(filepath = 'index.html'):
+    """
+    Serve the raw data.
+    You'd request something like `/!/002/018/almost/video.ogg`.
+    """
+    frontend_dir = os.path.join(os.environ['WRIST_ROOT'], 'annotate', 'frontend')
+    return static_file(filepath, frontend_dir)
+
 run(host='localhost', port=8080)
