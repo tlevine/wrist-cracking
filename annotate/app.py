@@ -2,7 +2,7 @@
 import os
 from bottle import route, run, template
 
-@route('/!/:file')
+@route('/!/<file:path>')
 def index(file):
     return os.path.join(*file.split('/'))
     return os.environ['WRIST_RAW']
