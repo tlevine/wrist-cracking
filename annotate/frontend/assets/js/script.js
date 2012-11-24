@@ -16,4 +16,7 @@ $(function(){
     }
     return wrist
   })();
+  $('#video').bind('timeupdate', function() {
+    wrist.set_shader_width(wrist.video_completion(wrist.video));
+  });
 })
