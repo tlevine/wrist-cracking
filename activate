@@ -5,8 +5,8 @@ export WRIST_RAW="$PWD/raw"
 
 # Run the data read/write API
 annotate() {
-  builtin cd "$WRIST_RAW/annotate"
-  ./app.py
+  builtin cd "$WRIST_ROOT/annotate"
+  bottle.py --debug --reload app
 }
 
 # Indicate that we've activated.
