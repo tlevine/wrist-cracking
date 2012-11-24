@@ -3,8 +3,9 @@
     cross-domain requests.
 * The "waveforms" are just images, and we scroll over them with CSS.
 
-## Data read/write service
-It looks like this.
+## Data read/write API
+The data read/write service only has one HTML page. It is at `GET /`, and it is
+static. This page calls the API. Ooohh "API" I'm so hip!!!
 
 ### Assets
 Assets are mapped exactly to the filesystem structure, and they look like this:
@@ -20,13 +21,19 @@ Assets are mapped exactly to the filesystem structure, and they look like this:
   * `GET /!/:participant_id/:trial_id/:crack_or_almost/emg2.png`
 
 ### Navigation
-`GET /subtrials` lists all subtrials in JSON. You can pass `participant_id`,
-`trial_id` and `crack_or_almost` in the querystring to limit this.
+`GET /subtrials` lists all subtrials in JSON. They come out as a list of
+dictionaries, where the dictionaries look like this:
 
-Navigation:
+    {
+      "participant_id": ":participant_id",
+      "trial_id": ":trial_id",
+      "crack_or_almost": ":crack_or_almost",
+      "annotated": false
+    }
 
-* `GET /`: Display the webpage; this is the only HTML. 
+`annotated` gets switched to `true` when the annotation below is done.
 
+### Annotations
 Annotations are at `/!/:participant_id/:trial_id/:crack_or_almost/`. `GET` and
 `POST` are allowed. At first, `GET` returns something like this.
 
