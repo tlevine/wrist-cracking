@@ -25,9 +25,7 @@ Raw data are mapped exactly to the filesystem structure, like this:
 dictionaries, where the dictionaries look like this:
 
     {
-      "participant_id": ":participant_id",
-      "trial_id": ":trial_id",
-      "crack_or_almost": ":crack_or_almost",
+      "path": "/!/:participant_id/:trial_id/:crack_or_almost",
       "annotated": false
     }
 
