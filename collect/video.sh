@@ -19,5 +19,5 @@ fi
 #   ffmpegcolorspace ! x264enc ! mp4mux ! filesink location="$outfile"
 
 # http://noraisin.net/diary/?p=40
-gst-launch-0.10 v4l2src ! video/x-raw-yuv,width=640,height=480 ! ffmpegcolorspace ! theoraenc ! oggmux name=mux ! filesink location="$outfile" alsasrc ! audioconvert ! vorbisenc ! mux.
+gst-launch-0.10 v4l2src ! timeoverlay ! video/x-raw-yuv,width=640,height=480 ! ffmpegcolorspace ! theoraenc ! oggmux name=mux ! filesink location="$outfile" alsasrc ! audioconvert ! vorbisenc ! mux.
 
