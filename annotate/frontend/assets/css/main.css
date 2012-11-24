@@ -386,12 +386,24 @@ img.waveform {
 #waveform-wrapper {
     position: relative;
 }
-#progress-shader {
+
+.shader {
     position: absolute;
     display: block;
-    background-color: #F0F;
-    opacity: 0.3;
     height: 100%;
+}
+
+#progress-shader {
+    background-color: black;
+    opacity: 0.3;
+}
+
+#crack-time {
+    border-right-style: solid;
+    border-right-color: #0FF;
+    opacity: 0.9;
+    width: 30%;
+    display: none;
 }
 
 /* Media queries

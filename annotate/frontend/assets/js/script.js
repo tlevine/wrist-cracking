@@ -10,13 +10,17 @@ $(function(){
     wrist.video_completion = function(v) {
         return v.currentTime / v.duration;
     }
-    wrist.set_shader_width = function(proportion){
+    wrist.set_shader_width = function(shader, proportion){
       var percentage = (100 * proportion) + '%';
-      wrist.shader.css('width', percentage);
+      shader.css('width', percentage);
     }
     return wrist
   })();
   $('#video').bind('timeupdate', function() {
-    wrist.set_shader_width(wrist.video_completion(wrist.video));
+    wrist.set_shader_width(wrist.shader, wrist.video_completion(wrist.video));
+  });
+  $('button').click(function(){
+    $('#crack-time').show();
+    wrist.set_shader_width($('#crack-time'), wrist.video_completion(wrist.video));
   });
 })
