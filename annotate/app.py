@@ -1,10 +1,11 @@
 #!/usr/bin/env python
 import os
 import json
+import datetime
 from bottle import get, post, run, static_file, Bottle, request, response
 
 @get('/!/:participant_id/:trial_id/:crack_or_almost')
-def annotation(participant_id, trial_id, crack_or_almost):
+def get_annotation(participant_id, trial_id, crack_or_almost):
     subtrial_dir = os.path.join(os.environ['WRIST_RAW'], participant_id, trial_id, crack_or_almost)
     annotation_files = list(filter(lambda f: 'index' in f, os.listdir(subtrial_dir)))
     if len(annotation_files) > 0:
@@ -14,6 +15,24 @@ def annotation(participant_id, trial_id, crack_or_almost):
             "crack_or_almost": None,
             "crack_time": None,
         }
+
+@post('/!/:participant_id/:trial_id/:crack_or_almost')
+def post_annotation(participant_id, trial_id, crack_or_almost):
+
+    if not {'crack_or_almost', 'crack_time'}.issubset(request.params):
+        response.status = 400
+        return {'error': 'You must specify both "crack_or_almost" and "crack_time"'}
+
+    annotation_data = {
+        "crack_or_almost": bool(request.params.crack_or_almost),
+        "crack_time": float(request.params.crack_time),
+    }
+
+    subtrial_dir = os.path.join(os.environ['WRIST_RAW'], participant_id, trial_id, crack_or_almost)
+    annotation_filename = 'index-' + datetime.datetime.now().isoformat() + '.json'
+    annotation_file = open(os.path.join(subtrial_dir, annotation_filename), 'w')
+    json.dump(annotation_data, annotation_file)
+    annotation_file.close()
 
 @get('/!/<filepath:path>')
 def raw_data(filepath):

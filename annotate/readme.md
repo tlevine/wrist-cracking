@@ -40,7 +40,8 @@ Annotations are at `/!/:participant_id/:trial_id/:crack_or_almost/`. `GET` and
       "crack_time": null
     }
 
-On a `POST`, the JSON body is validated and then saved to 
+On a `POST`, the query string is expected to contain `crack_or_almost` and
+`crack_time`. It validated and then saved to 
 `/!/:participant_id/:trial_id/:crack_or_almost/index_:datetime.json`.
 
 On subsequent a `GET`, the alphabetically highest `index_:datetime.json` is
