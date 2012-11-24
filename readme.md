@@ -35,6 +35,12 @@ speaker are activated, so the signal also shows up in the video and audio.
 Later, the video-audio and arduino output are manually synchronized based on
 these signals.
 
+Actually, maybe I didn't do that, or maybe I only did that on some of the
+trials. Instead, I might have done the following.
+
+Video was collected with a webcam, and the time at which the video recording
+started and ended was automatically recorded.
+
 ## Experiment design
 Each trial involved performing the wrist-cracking motion twice, once with the
 goal of iliciting a crack and once with the goal of performing the same motion
