@@ -23,4 +23,20 @@ $(function(){
     $('#crack-time').show();
     wrist.set_shader_width($('#crack-time'), wrist.video_completion(wrist.video));
   });
-})
+});
+
+
+transition = function() {
+  $('img.waveform').attr('src', 'apple-touch-icon.png');
+  $('video#video').attr('src', '');
+  wrist.set_shader_width($('.shader'), 0);
+  $('video#video source').remove();
+}
+
+load_subtrial = function(path) {
+  // Path is like '/!/000/000/almost/'
+  $('img#audio').attr('src', path + 'audio.png');
+  $('img#emg1').attr('src', path + 'emg1.png');
+  $('img#emg2').attr('src', path + 'emg2.png');
+  $('#video').html('<source src="' + path + 'video.ogg" />');
+}

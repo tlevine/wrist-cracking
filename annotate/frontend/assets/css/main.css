@@ -367,7 +367,7 @@ sub {
 /* Primary styles
 ---------------------------------------- */
 
-#button-wrapper, video#video, img.waveform {
+#video-container, #button-wrapper, video#video, img.waveform {
     display: block;
     margin-left: auto;
     margin-right: auto;
@@ -376,9 +376,12 @@ sub {
 img.waveform {
     width: 100%;
 }
+#video-container, #video {
+    height: 480px;
+}
 
-#video, #button-wrapper {
-    width: 600px;
+#video-container, #video, #button-wrapper {
+    width: 640px;
 }
 #button-wrapper {
     text-align: center;
