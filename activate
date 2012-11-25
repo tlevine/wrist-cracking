@@ -1,10 +1,15 @@
 export WRIST_ROOT="$PWD"
 
-# For the data read/write API
-export WRIST_RAW="$PWD/raw"
-
 # Run the data read/write API
 annotate() {
+  export WRIST_RAW="$PWD/raw"
+  builtin cd "$WRIST_ROOT/annotate"
+  bottle.py --debug --reload app
+}
+
+# Run the data read/write API on fake raw files
+annotate-test() {
+  export WRIST_RAW="$PWD/raw-example"
   builtin cd "$WRIST_ROOT/annotate"
   bottle.py --debug --reload app
 }
@@ -16,5 +21,7 @@ PS1="[wrist]$PS1"
 deactivate () {
   export PATH=$OLD_PATH
   PS1=$OLD_PS1
+  unset -f annotate
+  unset -f annotate-test
   unset -f deactivate
 }
