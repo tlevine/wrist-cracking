@@ -5,3 +5,5 @@ created in the directory
 * `video.ogg`: Video and audio
 * `emg1.csv`: Readings from the first electrode
 * `emg2.csv`: Readings from the second electrode
+
+You need `gstreamer0.10-base-plugins` for the `timeoverlay` element.
