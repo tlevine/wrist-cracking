@@ -7,3 +7,8 @@ created in the directory
 * `emg2.csv`: Readings from the second electrode
 
 You need `gstreamer0.10-base-plugins` for the `timeoverlay` element.
+
+## How to synchronize
+Is this good enough? Run some manual tests to find out.
+
+    date --rfc-3339 ns && ./video.sh /tmp/foo.ogg
