@@ -12,3 +12,7 @@ You need `gstreamer0.10-base-plugins` for the `timeoverlay` element.
 Is this good enough? Run some manual tests to find out.
 
     date --rfc-3339 ns && ./video.sh /tmp/foo.ogg
+
+Pick out the first frame
+
+    ffmpeg -i foo.ogg -s 320?240 -vframes 1 swing.jpg 
