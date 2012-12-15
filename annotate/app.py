@@ -77,8 +77,7 @@ def navigation():
 @get('/<filepath:path>')
 def frontend(filepath = 'index.html'):
     """
-    Serve the raw data.
-    You'd request something like `/!/002/018/almost/video.ogg`.
+    Serve the frontend.
     """
     frontend_dir = os.path.join(os.environ['WRIST_ROOT'], 'annotate', 'frontend')
     return static_file(filepath, frontend_dir)
