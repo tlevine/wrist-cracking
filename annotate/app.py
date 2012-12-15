@@ -49,6 +49,8 @@ def navigation():
     out = []
     for participant in os.listdir(os.environ['WRIST_RAW']):
         participant_path = os.path.join(os.environ['WRIST_RAW'], participant)
+        if not os.path.isdir(participant_path):
+            continue
         for trial in os.listdir(participant_path):
             trial_path = os.path.join(participant_path, trial)
             for subtrial in os.listdir(trial_path):
@@ -63,7 +65,7 @@ def navigation():
                     annotated = False
 
                 # The path
-                web_path = '/!/' + '/'.join([participant, trial, subtrial] + '/')
+                web_path = '/!/' + '/'.join([participant, trial, subtrial]) + '/'
 
                 out.append({
                     "path": web_path,
