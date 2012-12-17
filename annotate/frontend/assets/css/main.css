@@ -374,6 +374,8 @@ sub {
 }
 
 img.waveform {
+    max-width: none;
+    height: 133px;
     width: 100%;
 }
 #video-container, #video {
