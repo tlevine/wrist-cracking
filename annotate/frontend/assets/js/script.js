@@ -19,10 +19,12 @@ $(function(){
   $('#video').bind('timeupdate', function() {
     wrist.set_shader_width(wrist.shader, wrist.video_completion(wrist.video));
   });
-  $('button').click(function(){
+  $('.crack-button').click(function(){
     $('#crack-time').show();
     wrist.set_shader_width($('#crack-time'), wrist.video_completion(wrist.video));
   });
+  $('#first-button-press').click(function(){
+    $('
 });
 
 
