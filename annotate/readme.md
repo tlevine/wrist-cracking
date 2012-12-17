@@ -53,11 +53,13 @@ Annotations are at `/!/:participant_id/:trial_id/:crack_or_almost/`. `GET` and
 
     {
       "crack_or_almost": null,
-      "crack_time": null
+      "crack_time": null,
+      "sync0": 0.00232,
+      "sync1": 0.92749
     }
 
-On a `POST`, the query string is expected to contain `crack_or_almost` and
-`crack_time`. It validated and then saved to 
+On a `POST`, the query string is expected to contain `crack_or_almost`,
+`crack_time`, `sync0` and `sync1`. It validated and then saved to 
 `/!/:participant_id/:trial_id/:crack_or_almost/index_:datetime.json`.
 
 On subsequent a `GET`, the alphabetically highest `index_:datetime.json` is
