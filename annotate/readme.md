@@ -54,9 +54,14 @@ Annotations are at `/!/:participant_id/:trial_id/:crack_or_almost/`. `GET` and
     {
       "crack_or_almost": null,
       "crack_time": null,
-      "sync0": 0.00232,
-      "sync1": 0.92749
+      "sync0-av": 0.00232,
+      "sync1-av": 0.92749,
+      "sync0-av": 0.02382,
+      "sync1-av": 0.91943
     }
+
+If no `sync0` or `sync1` exists, 0 and 1 are used respectively; 0 is the
+beginning, and 1 is the end.
 
 On a `POST`, the query string is expected to contain `crack_or_almost`,
 `crack_time`, `sync0` and `sync1`. It validated and then saved to 
