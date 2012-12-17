@@ -14,18 +14,24 @@ def get_annotation(participant_id, trial_id, crack_or_almost):
         return {
             "crack_or_almost": None,
             "crack_time": None,
+            "sync0-av": 0,
+            "sync0-emg": 0,
+            "sync1-av": 1,
+            "sync1-emg": 1,
         }
 
 @post('/!/:participant_id/:trial_id/:crack_or_almost')
 def post_annotation(participant_id, trial_id, crack_or_almost):
 
-    if not {'crack_or_almost', 'crack_time'}.issubset(request.params):
+    if not {'crack_or_almost', 'crack_time', 'sync0-av', 'sync1-av', 'sync0-emg', 'sync1-emg'}.issubset(request.params):
         response.status = 400
-        return {'error': 'You must specify both "crack_or_almost" and "crack_time"'}
+        return {'error': 'You must specify all of "crack_or_almost", "crack_time", "sync0-av" and "sync1-av", "sync0-emg" and "sync1-emg".'}
 
     annotation_data = {
         "crack_or_almost": bool(request.params.crack_or_almost),
         "crack_time": float(request.params.crack_time),
+        "sync0": float(request.params.sync0),
+        "sync1": float(request.params.sync1),
     }
 
     subtrial_dir = os.path.join(os.environ['WRIST_RAW'], participant_id, trial_id, crack_or_almost)
