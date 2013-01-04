@@ -1,0 +1,6 @@
+<canvas
+    id="<%= id %>"
+    class="waveplot"
+    width="<%= x.length %>"
+    height="<%= 2 * Math.abs(y.reduce(function(a, b){return Math.max(a, b)})) %>"
+></canvas>
