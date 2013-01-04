@@ -10,15 +10,15 @@ int extensor_emg() {
   return analogRead(2);
 }
 
-int sync_button_pressed(){
+char* sync_button_pressed(){
   // Check whether the sync button is pressed.
   // (The button press is recorded on video to ease syncing.)
   if (HIGH == digitalRead(syncButtonPin)){
     digitalWrite(ledPin, HIGH);
-    return 0;
+    return 'true';
   } else {
     digitalWrite(ledPin, LOW);
-    return 1;
+    return 'false';
   }
 }
 
@@ -28,18 +28,38 @@ void setup()
   pinMode(ledPin, INPUT);
   digitalWrite(ledPin, LOW);
   Serial.begin(9600);
-  Serial.println("millis(),extensor_emg,flexor_emg,sync_button_pressed");
 }
 
 void loop()
 {
+  // Start a JSON document
+  Serial.print('{')
+
+  // Milliseconds since boot
+  Serial.print('"millis":');
   Serial.print(millis());
   Serial.print(',');
-  Serial.print(flexor_emg());
-  Serial.print(',');
+
+  // Extensor EMG reading
+  Serial.print('"extensor_emg":');
   Serial.print(extensor_emg());
   Serial.print(',');
+
+  // Flexor EMG reading
+  Serial.print('"flexor_emg":');
+  Serial.print(flexor_emg());
+  Serial.print(',');
+
+  // Whether the sync button is pressed
+  Serial.print('"sync_button_pressed":');
   Serial.print(sync_button_pressed());
+
+  // End the JSON document
+  Serial.print('}')
+
+  // New line
   Serial.println(); 
+
+  // Ten readings per second
   delay(99);
 }
