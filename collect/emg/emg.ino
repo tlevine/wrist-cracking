@@ -31,7 +31,7 @@ void setup()
   Serial.println("millis(),extensor_emg,flexor_emg,sync_button_pressed");
 }
 
-void loop()q
+void loop()
 {
   Serial.print(millis());
   Serial.print(',');
