@@ -58,9 +58,15 @@ The EMG processing was quite simple. As mentioned above, I used a process
 that resulted in two numbers per trial, one for before the motion and one
 for after the motion.
 
-The exact process is that I calculated root mean square of the EMG signal
-for before and after the wrist motion (regardless of whether the motion
-involved a crack). Based on the following graphs of the EMG activity,
+Here's that process. I calculated root mean square of the EMG signal for
+before and after the wrist motion (regardless of whether the motion involved
+a crack). I used a process described below to determine a single frame of
+video that I treated as the point of motion. I then added a buffer of 12 (?)
+frames, or half a second, on either side. I used the full duration of the
+video until the earlier of these frames as the "before" section, and I used
+the video from the later of these frames to the end as the "after" section.
+
+Based on the following graphs of the EMG activity,
 I'd say that this simple model is just fine.
 
 It took me the longest time to understand what root mean
@@ -73,3 +79,11 @@ as the average magnitude of the electrical signal, or the average amplitude
 of a wave.
 
 ## Determining the point of motion
+I determined the point of wrist motion (cracking or would-be-cracking)
+by playing the video and stopping it right after the motion occurred.
+I wrote a small thingy to make it easier to do all of this, but the
+important bit is that I opened the video file with `mplayer`, played
+the video until the wrist motion occurred, pressed "q" to quit the video,
+and parsed the final lines of the mplayer output.
+
+    mplayer video.mpg |tail
