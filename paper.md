@@ -13,11 +13,11 @@ wrist muscle groups and that when the audible crack occurs, they are
 temporarily relaxed to some degree.
 
 ## Physical measurement
-I connected EMG to a wrist flexor and a wrist extensor, varying the
+I connected electromyograph (EMG) electrodes to a wrist flexor and a wrist extensor, varying the
 combination, and measured the output every centisecond. I used
 [this thing]()
 attached to a [Boarduino]().
-This resulted in the following output, which was streamed to a file.
+This resulted in the following sort of output.
 
     date,                           extensor_emg, flexor_emg, sync_button_pressed
     2012-11-21 11:20:43.007000000,           123,        123, 0
@@ -25,21 +25,9 @@ This resulted in the following output, which was streamed to a file.
     2012-11-21 11:20:43.009000000,           123,        123, 0
     2012-11-21 11:20:43.010000000,           123,        123, 0
 
-Simultaneously, video and audio of the hand were recorded.
-
-### Synchronization procedure
-At the beginning and end of the session, a button on the Arduino was pressed
-for the synchronization procedure. The state of this button is recorded in
-the output (`sync_button_pressed`). When the button is pressed, a light and
-speaker are activated, so the signal also shows up in the video and audio.
-Later, the video-audio and arduino output are manually synchronized based on
-these signals.
-
-Actually, maybe I didn't do that, or maybe I only did that on some of the
-trials. Instead, I might have done the following.
-
-Video was collected with a webcam, and the time at which the video recording
-started and ended was automatically recorded.
+It was not encoded in this format, however; I synchronously recorded
+EMG, video, and audio all at the same time from the same computer.
+The EMG, video, and audio data were all stored in a single video container file.
 
 ## Experiment design
 Each trial involved performing the wrist-cracking motion twice, once with the
