@@ -72,3 +72,23 @@ A second function of this interface is to let me explore the data; based on
 this exploration, I came up with the variables below
 
 ## EMG variables/features
+The EMG processing was quite simple. As mentioned above, I used a process
+that resulted in two numbers per trial, one for before the motion and one
+for after the motion.
+
+The exact process is that I calculated root mean square of the EMG signal
+for before and after the wrist motion (regardless of whether the motion
+involved a crack). Based on the following graphs of the EMG activity,
+I'd say that this simple model is just fine.
+
+It took me the longest time to understand what root mean
+square was; in case you are like me in this way, I mention that root mean
+square is the same thing as a population standard deviation. In case you
+don't remember what the difference is between a population standard deviation
+and a sample standard deviation, just think of it as a standard deviation.
+And if you don't know what standard deviation is, think of root mean square
+as the average magnitude of the electrical signal, or the average amplitude
+of a wave.
+
+##
+
